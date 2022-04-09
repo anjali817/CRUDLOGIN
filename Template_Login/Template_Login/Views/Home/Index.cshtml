@@ -1,0 +1,33 @@
+﻿
+
+@model List<Template_Login.Models.EmpModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Salary</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.Email</td>
+    <td>@item.Mobile</td>
+    <td>@item.Salary</td>
+    <td><a href="@Url.Action("Edit","Home",new { item.Id})" class="btn btn-success">Edit</a></td>
+    <td><a href="@Url.Action("Delete","Home",new { item.Id})" class="btn btn-danger">Delete</a></td>
+
+</tr>
+    }
+</table>
+
